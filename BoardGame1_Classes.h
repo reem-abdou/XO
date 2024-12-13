@@ -181,7 +181,11 @@ public:
 
 
     bool update_board(int x, int y, T symbol){
-        this->board[x][y]=symbol;
+        if(this->board[x][y]!=0){
+            cout << "This place is taken, PLEASE TRY AGAIN\n";
+            return false;
+        }
+        this->board[x][y] = symbol;
         i = x;
         j = y;
         return true;
