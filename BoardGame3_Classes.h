@@ -197,12 +197,15 @@ public:
 
 
     bool update_board(int x, int y, T symbol){
+        if(this->board[x][y]!=0){
+            cout << "This place is taken, PLEASE TRY AGAIN\n";
+            return false;
+        }
         this->board[x][y] = symbol;
         i = x;
         j = y;
         return true;
     }
-
     void display_board(){
         for(int i = 0 ; i < 9; i++){
             cout << "        ";
@@ -896,15 +899,14 @@ public:
         return false;
     }
     bool is_draw(){
-        //int x = 2;
-        /*for(int i = 0 ; i < 3 ; i++){
-            for(int j = 0 ; j < 3 ; j++){
+        for(int i = 0 ; i < 9 ; i++){
+            for(int j = 0 ; j < 9 ; j++){
                 if(this->board[i][j]==0){
                     return false;
                 }
             }
             x--;
-        }*/
+        }
         return false;
     }
 
